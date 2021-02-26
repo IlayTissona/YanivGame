@@ -16,17 +16,16 @@ const VAlUES = [
 ];
 
 class Card {
-  constructor(suit, value) {
+  constructor(suit, rank) {
     this.suit = suit;
-    this.value = value;
+    this.rank = rank;
+    this.isJoker = this.rank === "JOKER";
   }
 }
 
 class Deck {
   constructor(cards = freshDeck()) {
     this.cards = cards;
-    this.cards.push(new Card("red", "JOKER"));
-    this.cards.push(new Card("black", "JOKER"));
   }
 
   get numberOfCards() {
@@ -46,7 +45,7 @@ class Deck {
 class Player {
   constructor(name) {
     this.name = name;
-    this.cards = [];
+    this.cards = new PlayerDeck().cards;
     this.cardSum;
     this.yanivAble = () => {
       if (this.cardSum <= 7) return true;
@@ -62,8 +61,8 @@ class Player {
   get cardSum() {
     let sum = 0;
     for (let card of this.cards) {
-      if (isNaN(card.value)) {
-        switch (card.value) {
+      if (isNaN(card.rank)) {
+        switch (card.rank) {
           case "K": {
             sum += 10;
             break;
@@ -84,17 +83,46 @@ class Player {
             break;
         }
       } else {
-        sum += Number(card.value);
+        sum += Number(card.rank);
       }
     }
     return sum;
   }
+
+  throwCard(cardPlace, pileDeck) {
+    pileDeck.push();
+    this.cards.splice(cardPlace, 1);
+  }
+
+  drawCard(drawingDeck) {
+    this.cards.push(drawingDeck.pop());
+  }
+}
+
+class TableDeck extends Deck {
+  constructor(cards = freshDeck()) {
+    super(cards);
+    this.cards.push(new Card("red", "JOKER"));
+    this.cards.push(new Card("black", "JOKER"));
+  }
+}
+
+class PlayerDeck extends Deck {
+  constructor(cards = []) {
+    super(cards);
+  }
+}
+
+class PileDeck extends Deck {
+  constructor(cards = []) {
+    super(cards);
+  }
 }
 
 class Game {
-  constructor() {
-    this.drawingDeck = new Deck().cards;
-    this.players = createPlayers();
+  constructor(playersNum) {
+    this.drawingDeck = new TableDeck().cards;
+    this.players = createPlayers(playersNum);
     this.dropedCards = [];
     this.round = 0;
     this.starter = this.players[Math.floor(Math.random() * 5)];
@@ -107,22 +135,22 @@ class Game {
       }
     }
   }
+
+  winnerFounder() {
+    const winner = this.players[0];
+    for (player of this.players) {
+      if (winner.cardSum > player.cardSum) winner = player;
+    }
+    return winner;
+  }
 }
 
-function createPlayers() {
+function createPlayers(playersNum) {
   let p = [];
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < playersNum; i++) {
     p.push(new Player("player" + i));
   }
   return p;
-}
-
-function foundWinner() {
-  let winner = players[0];
-  for (let player of players) {
-    if (player.cardSum < winner.cardSum) winner = player;
-  }
-  return winner;
 }
 
 function newElem(type, className) {
@@ -133,15 +161,14 @@ function newElem(type, className) {
 
 function freshDeck() {
   return SUITS.flatMap((suit) => {
-    return VAlUES.map((value) => {
-      return new Card(suit, value);
+    return VAlUES.map((rank) => {
+      return new Card(suit, rank);
     });
   });
 }
 
-const cards = new Deck();
+const cards = new TableDeck();
 cards.shuffle();
-const game = new Game();
-game.CardSplit();
-// console.log(game.players[0].cards);
-// console.log(game.players[0].cardSum);
+const game = new Game(3);
+console.log(cards);
+// console.log(game);
