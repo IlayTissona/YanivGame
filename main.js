@@ -104,6 +104,7 @@ class TableDeck extends Deck {
     super(cards);
     this.cards.push(new Card("red", "JOKER"));
     this.cards.push(new Card("black", "JOKER"));
+    this.shuffle();
   }
 }
 
@@ -153,9 +154,9 @@ function createPlayers(playersNum) {
   return p;
 }
 
-function newElem(type, className) {
+function newElem(type, id) {
   let elem = document.createElement(type);
-  if (className) elem.className = className;
+  if (id) elem.id = id;
   return elem;
 }
 
@@ -167,8 +168,9 @@ function freshDeck() {
   });
 }
 
-const cards = new TableDeck();
-cards.shuffle();
-const game = new Game(3);
-// console.log(cards);
-// console.log(game);
+const game1 = new Game(3);
+game1.CardSplit();
+game1.players[0].drawCard(game1.drawingDeck);
+game1.players[0].yanivAble();
+game1.players[0].cardSum;
+console.log(game1.players[0].cards);

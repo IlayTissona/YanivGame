@@ -5,9 +5,9 @@
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 25% 50% 25%;
-  grid-template-columns: 25% 50% 25%;
+      grid-template-columns: 25% 50% 25%;
   -ms-grid-rows: 25% 50% 25%;
-  grid-template-rows: 25% 50% 25%;
+      grid-template-rows: 25% 50% 25%;
 }
 
 #piles {
@@ -21,9 +21,9 @@
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 5% 35% 20% 35% 5%;
-  grid-template-columns: 5% 35% 20% 35% 5%;
+      grid-template-columns: 5% 35% 20% 35% 5%;
   -ms-grid-rows: 5% 10% 70% 10% 5%;
-  grid-template-rows: 5% 10% 70% 10% 5%;
+      grid-template-rows: 5% 10% 70% 10% 5%;
 }
 
 #piles #drawPile {
@@ -62,9 +62,9 @@
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 5% 90% 5%;
-  grid-template-columns: 5% 90% 5%;
+      grid-template-columns: 5% 90% 5%;
   -ms-grid-rows: 20% 60% 20%;
-  grid-template-rows: 20% 60% 20%;
+      grid-template-rows: 20% 60% 20%;
 }
 
 #yanivBtn button {
@@ -89,9 +89,9 @@
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 5% 90% 5%;
-  grid-template-columns: 5% 90% 5%;
+      grid-template-columns: 5% 90% 5%;
   -ms-grid-rows: 10% 80% 10%;
-  grid-template-rows: 10% 80% 10%;
+      grid-template-rows: 10% 80% 10%;
 }
 
 #player2 {
@@ -130,11 +130,9 @@
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 33% 33% 33%;
-  grid-template-columns: 33% 33% 33%;
-  -ms-grid-rows: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
-  grid-template-rows:
-    10% 10% 10% 10%
-    10% 10% 10% 10% 10% 10%;
+      grid-template-columns: 33% 33% 33%;
+  -ms-grid-rows: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+      grid-template-rows: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
 }
 
 #startNewGame select {
@@ -165,4 +163,4 @@
   -ms-grid-column-span: 1;
   grid-column: 2/3;
 }
-/*# sourceMappingURL=style.css.map */
+/*# sourceMappingURL=card.css.map */
