@@ -1,4 +1,4 @@
-const SUITS = ["♥", "♦", "♠", "♣"];
+const SUITS = ["H", "D", "S", "C"];
 const VAlUES = [
   "A",
   "2",
@@ -138,9 +138,11 @@ class Game {
   }
 
   winnerFounder() {
-    const winner = this.players[0];
-    for (player of this.players) {
-      if (winner.cardSum > player.cardSum) winner = player;
+    let winner = this.players[0];
+    for (let player of this.players) {
+      if (winner.cardSum > player.cardSum) {
+        winner = player;
+      }
     }
     return winner;
   }
@@ -148,7 +150,7 @@ class Game {
 
 function createPlayers(playersNum) {
   let p = [];
-  for (let i = 0; i < playersNum; i++) {
+  for (let i = 1; i <= playersNum; i++) {
     p.push(new Player("player" + i));
   }
   return p;
@@ -167,10 +169,3 @@ function freshDeck() {
     });
   });
 }
-
-const game1 = new Game(3);
-game1.CardSplit();
-game1.players[0].drawCard(game1.drawingDeck);
-game1.players[0].yanivAble();
-game1.players[0].cardSum;
-console.log(game1.players[0].cards);

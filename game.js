@@ -2,6 +2,10 @@ const yanivButton = document.getElementById("yaniv");
 const dropedPile = document.getElementById("dropedPile");
 const drawPile = document.getElementById("drawPile");
 const board = document.getElementById("board");
+const player1 = document.getElementById("player1");
+const player2 = document.getElementById("player2");
+const player3 = document.getElementById("player3");
+const player4 = document.getElementById("player4");
 
 function startNewGameWindow() {
   const startWindow = newElem("div", "startNewGame");
@@ -23,25 +27,35 @@ function startNewGameWindow() {
   startWindow.append(helloMessage);
   startWindow.append(startButton);
   startButton.addEventListener("click", () => {
+    let newGame = startNewGame(numOfPlayers.value);
+    newGame.CardSplit();
     board.removeChild(startWindow);
-    createPlayerDiv(numOfPlayers.value);
+    printGame(newGame);
   });
   board.append(startWindow);
 }
 
-function createPlayerDiv(numOfPlayers) {
-  for (let i = 1; i <= numOfPlayers; i++) {
-    let player = newElem("div", "player" + i);
-    board.append(player);
+function startNewGame(num) {
+  const game = new Game(num);
+  return game;
+}
+
+function createCard(cardObj) {
+  let url = cardObj.rank + cardObj.suit + ".jpg";
+  let card = newElem("img", "card");
+  card.src = `./styles/cards/${url}`;
+  return card;
+}
+
+function printGame(game) {
+  for (player of game.players) {
+    let playerDiv = newElem("div", player.name);
+    for (card of player.cards) {
+      cardImg = createCard(card);
+      playerDiv.append(cardImg);
+    }
+    board.append(playerDiv);
   }
-}
-
-function startNewGAme() {
-  const game = new Game();
-}
-
-function createCard(place) {
-  let card = newElem("div");
 }
 
 document.addEventListener("onload", startNewGameWindow());

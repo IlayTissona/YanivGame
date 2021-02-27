@@ -5,9 +5,9 @@
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 25% 50% 25%;
-  grid-template-columns: 25% 50% 25%;
+      grid-template-columns: 25% 50% 25%;
   -ms-grid-rows: 25% 50% 25%;
-  grid-template-rows: 25% 50% 25%;
+      grid-template-rows: 25% 50% 25%;
 }
 
 #piles {
@@ -21,9 +21,9 @@
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 5% 35% 20% 35% 5%;
-  grid-template-columns: 5% 35% 20% 35% 5%;
+      grid-template-columns: 5% 35% 20% 35% 5%;
   -ms-grid-rows: 5% 10% 70% 10% 5%;
-  grid-template-rows: 5% 10% 70% 10% 5%;
+      grid-template-rows: 5% 10% 70% 10% 5%;
 }
 
 #piles #drawPile {
@@ -62,9 +62,9 @@
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 5% 90% 5%;
-  grid-template-columns: 5% 90% 5%;
+      grid-template-columns: 5% 90% 5%;
   -ms-grid-rows: 20% 60% 20%;
-  grid-template-rows: 20% 60% 20%;
+      grid-template-rows: 20% 60% 20%;
 }
 
 #yanivBtn button {
@@ -89,9 +89,24 @@
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 5% 90% 5%;
-  grid-template-columns: 5% 90% 5%;
+      grid-template-columns: 5% 90% 5%;
   -ms-grid-rows: 10% 80% 10%;
-  grid-template-rows: 10% 80% 10%;
+      grid-template-rows: 10% 80% 10%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#player1 #card {
+  -webkit-transform: rotate(270deg);
+          transform: rotate(270deg);
+  height: 40%;
+  width: 20%;
+  margin: auto;
 }
 
 #player2 {
@@ -100,6 +115,25 @@
   -ms-grid-column: 2;
   -ms-grid-column-span: 1;
   grid-column: 2/3;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 5% 90% 5%;
+      grid-template-columns: 5% 90% 5%;
+  -ms-grid-rows: 10% 80% 10%;
+      grid-template-rows: 10% 80% 10%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+#player2 #card {
+  height: 60%;
+  width: 15%;
+  margin: auto;
 }
 
 #player3 {
@@ -107,7 +141,23 @@
   -ms-grid-row-span: 3;
   grid-row: 1/4;
   -ms-grid-column: 3;
-  grid-column: 3;
+  -ms-grid-column-span: 1;
+  grid-column: 3/4;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#player3 #card {
+  height: 40%;
+  width: 20%;
+  -webkit-transform: rotate(270deg);
+          transform: rotate(270deg);
+  margin: auto;
 }
 
 #player4 {
@@ -116,6 +166,21 @@
   -ms-grid-column: 2;
   -ms-grid-column-span: 1;
   grid-column: 2/3;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 5% 90% 5%;
+      grid-template-columns: 5% 90% 5%;
+  -ms-grid-rows: 10% 80% 10%;
+      grid-template-rows: 10% 80% 10%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#player4 #card {
+  height: 60%;
+  width: 15%;
+  margin: auto;
 }
 
 #startNewGame {
@@ -130,11 +195,9 @@
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 33% 33% 33%;
-  grid-template-columns: 33% 33% 33%;
-  -ms-grid-rows: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
-  grid-template-rows:
-    10% 10% 10% 10%
-    10% 10% 10% 10% 10% 10%;
+      grid-template-columns: 33% 33% 33%;
+  -ms-grid-rows: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+      grid-template-rows: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
 }
 
 #startNewGame select {

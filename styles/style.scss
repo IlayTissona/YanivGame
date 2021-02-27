@@ -57,21 +57,60 @@
   display: grid;
   grid-template-columns: 5% 90% 5%;
   grid-template-rows: 10% 80% 10%;
+  display: flex;
+  flex-direction: column;
+
+  #card {
+    transform: rotate(270deg);
+    height: 40%;
+    width: 20%;
+    margin: auto;
+  }
 }
 
 #player2 {
   grid-row: 1;
   grid-column: 2/3;
+  display: grid;
+  grid-template-columns: 5% 90% 5%;
+  grid-template-rows: 10% 80% 10%;
+  display: flex;
+  flex-direction: row;
+
+  #card {
+    height: 60%;
+    width: 15%;
+    margin: auto;
+  }
 }
 
 #player3 {
   grid-row: 1/4;
-  grid-column: 3;
+  grid-column: 3/4;
+  display: flex;
+  flex-direction: column;
+
+  #card {
+    height: 40%;
+    width: 20%;
+    transform: rotate(270deg);
+    margin: auto;
+  }
 }
 
 #player4 {
   grid-row: 3;
   grid-column: 2/3;
+  display: grid;
+  grid-template-columns: 5% 90% 5%;
+  grid-template-rows: 10% 80% 10%;
+  display: flex;
+
+  #card {
+    height: 60%;
+    width: 15%;
+    margin: auto;
+  }
 }
 
 #startNewGame {
