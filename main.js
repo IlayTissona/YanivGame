@@ -89,8 +89,8 @@ class Player {
     return sum;
   }
 
-  throwCard(cardPlace, pileDeck) {
-    pileDeck.push();
+  discardCard(cardPlace, pileDeck) {
+    pileDeck.push(this.cards[cardPlace]);
     this.cards.splice(cardPlace, 1);
   }
 
@@ -170,5 +170,5 @@ function freshDeck() {
 const cards = new TableDeck();
 cards.shuffle();
 const game = new Game(3);
-console.log(cards);
+// console.log(cards);
 // console.log(game);

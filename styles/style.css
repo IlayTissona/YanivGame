@@ -1,0 +1,61 @@
+#board {
+  background-color: rgb(66, 179, 158);
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 25% 50% 25%;
+  grid-template-rows: 25% 50% 25%;
+}
+
+#piles {
+  background-color: rgb(1, 237, 193);
+  grid-column: 2/3;
+  grid-row: 2/3;
+  display: grid;
+  grid-template-columns: 5% 35% 20% 35% 5%;
+  grid-template-rows: 5% 10% 70% 10% 5%;
+}
+
+#drawPile {
+  grid-column: 2/3;
+  grid-row: 2/5;
+  background-image: url("./cardBack.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#dropedPile {
+  grid-column: 4/5;
+  grid-row: 2/5;
+  background-image: url("./cardBack.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#yanivBtn {
+  grid-column: 2/3;
+  grid-row: 2/3;
+}
+
+#player1 {
+  grid-row: 1/4;
+  grid-column: 1;
+  display: grid;
+  grid-template-columns: nones;
+  grid-template-rows: 10% 80% 10%;
+}
+
+#player2 {
+  grid-row: 1;
+  grid-column: 2/3;
+}
+#player3 {
+  grid-row: 1/4;
+  grid-column: 3;
+}
+#player4 {
+  grid-row: 3;
+  grid-column: 2/3;
+}
