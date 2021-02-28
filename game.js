@@ -44,9 +44,9 @@ function startNewGame(num) {
 
 function createCard(cardObj) {
   let url = cardObj.rank + cardObj.suit + ".jpg";
-  let card = newElem("img", "card");
+  let card = newElem("img", cardObj.rank + cardObj.suit);
   card.src = `./styles/cards/${url}`;
-  card.className = `./styles/cards/${url}`;
+  card.className = "card";
   return card;
 }
 
@@ -63,20 +63,17 @@ function printGame(game, numOfPlayers) {
 
 function playTurn(nowPlayer) {
   nowPlayer.addEventListener("click", (e) => {
-    const cardSrc = e.target.getAttribute("src");
-    discardCardDom(nowPlayer, cardSrc);
+    const cardSuitNRank = e.target.id;
+    discardCardDom(nowPlayer, cardSuitNRank);
   });
 }
 
-function discardCardDom(player, cardSrc) {
-  if (cardSrc) {
-    let cardValue = cardSrc;
-    cardValue.slice(14, cardSrc.length - 1);
-    console.log(cardValue);
-    let playerCard = player.getElementsByClassName(cardSrc)[0];
+function discardCardDom(player, cardSuitNRank) {
+  if (cardSuitNRank) {
+    let playerCard = document.getElementById(cardSuitNRank);
     dropedPile.innerHTML = "";
-    dropedPile.append(playerCard);
     player.removeChild(playerCard);
+    dropedPile.append(playerCard);
   }
 }
 
