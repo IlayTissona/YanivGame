@@ -6,6 +6,7 @@ const player1 = document.getElementById("player1");
 const player2 = document.getElementById("player2");
 const player3 = document.getElementById("player3");
 const player4 = document.getElementById("player4");
+let gameLoaded = false;
 
 function startNewGameWindow() {
   const startWindow = newElem("div", "startNewGame");
@@ -30,7 +31,8 @@ function startNewGameWindow() {
     let newGame = startNewGame(numOfPlayers.value);
     newGame.CardSplit();
     board.removeChild(startWindow);
-    printGame(newGame);
+    printGame(newGame, numOfPlayers.value);
+    gameLoaded = true;
   });
   board.append(startWindow);
 }
@@ -44,12 +46,13 @@ function createCard(cardObj) {
   let url = cardObj.rank + cardObj.suit + ".jpg";
   let card = newElem("img", "card");
   card.src = `./styles/cards/${url}`;
+  card.className = `./styles/cards/${url}`;
   return card;
 }
 
-function printGame(game) {
+function printGame(game, numOfPlayers) {
   for (player of game.players) {
-    let playerDiv = newElem("div", player.name);
+    let playerDiv = document.getElementById(player.name);
     for (card of player.cards) {
       cardImg = createCard(card);
       playerDiv.append(cardImg);
@@ -58,4 +61,25 @@ function printGame(game) {
   }
 }
 
+function playTurn(nowPlayer) {
+  nowPlayer.addEventListener("click", (e) => {
+    const cardSrc = e.target.getAttribute("src");
+    discardCardDom(nowPlayer, cardSrc);
+  });
+}
+
+function discardCardDom(player, cardSrc) {
+  if (cardSrc) {
+    let cardValue = cardSrc;
+    cardValue.slice(14, cardSrc.length - 1);
+    console.log(cardValue);
+    let playerCard = player.getElementsByClassName(cardSrc)[0];
+    dropedPile.innerHTML = "";
+    dropedPile.append(playerCard);
+    player.removeChild(playerCard);
+  }
+}
+
 document.addEventListener("onload", startNewGameWindow());
+
+playTurn(player1);

@@ -89,9 +89,13 @@ class Player {
     return sum;
   }
 
-  discardCard(cardPlace, pileDeck) {
-    pileDeck.push(this.cards[cardPlace]);
-    this.cards.splice(cardPlace, 1);
+  discardCard(cardRankNSuit, pileDeck) {
+    for (card of this.cards)
+      if (cardRankNSuit === card.rank + card.suit) {
+        let cardPlace = this.cards.indexOf(card);
+        pileDeck.push(this.cards[cardPlace]);
+        this.cards.splice(cardPlace, 1);
+      }
   }
 
   drawCard(drawingDeck) {
@@ -126,7 +130,7 @@ class Game {
     this.players = createPlayers(playersNum);
     this.dropedCards = [];
     this.round = 0;
-    this.starter = this.players[Math.floor(Math.random() * 5)];
+    this.starter = this.players[Math.floor(Math.random() * playersNum)];
   }
 
   CardSplit() {
@@ -169,3 +173,7 @@ function freshDeck() {
     });
   });
 }
+
+// const game = new Game(2);
+// game.CardSplit();
+// console.log(game.players[0].cards);
