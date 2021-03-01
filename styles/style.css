@@ -33,7 +33,7 @@
   -ms-grid-row: 2;
   -ms-grid-row-span: 3;
   grid-row: 2/5;
-  background-image: url("./cardBack.jpg");
+  background-image: url("./cards/Gray_back.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -46,7 +46,7 @@
   -ms-grid-row: 2;
   -ms-grid-row-span: 3;
   grid-row: 2/5;
-  background-image: url("./cardBack.jpg");
+  background-image: url("./cards/Gray_back.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -104,7 +104,7 @@
           flex-direction: column;
 }
 
-#player1 #card {
+#player1 .card {
   -webkit-transform: rotate(270deg);
           transform: rotate(270deg);
   height: 40%;
@@ -133,7 +133,7 @@
           flex-direction: row;
 }
 
-#player2 #card {
+#player2 .card {
   height: 60%;
   width: 15%;
   margin: auto;
@@ -155,7 +155,7 @@
           flex-direction: column;
 }
 
-#player3 #card {
+#player3 .card {
   height: 40%;
   width: 20%;
   -webkit-transform: rotate(270deg);
@@ -180,7 +180,7 @@
   display: flex;
 }
 
-#player4 #card {
+#player4 .card {
   height: 60%;
   width: 15%;
   margin: auto;

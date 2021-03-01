@@ -101,6 +101,17 @@ class Player {
   drawCard(drawingDeck) {
     this.cards.push(drawingDeck.pop());
   }
+
+  stringToCardObj(cardId) {
+    if (cardId === "JOKERred") {
+      return this.cards.find((string) => string === "JOKERred");
+    } else if (cardId === "JOKERblack") {
+      return this.cards.find((string) => string === "JOKERblack");
+    } else {
+      const suit = cardId[0];
+      const value = cardId;
+    }
+  }
 }
 
 class TableDeck extends Deck {
@@ -133,7 +144,7 @@ class Game {
     this.starter = this.players[Math.floor(Math.random() * playersNum)];
   }
 
-  CardSplit() {
+  CardDeal() {
     for (let i = 0; i < 5; i++) {
       for (let player of this.players) {
         player.cards.push(this.drawingDeck.pop());
@@ -174,6 +185,13 @@ function freshDeck() {
   });
 }
 
-// const game = new Game(2);
-// game.CardSplit();
+function isLegalChoice(selectedCards, cardToSelect) {
+  return true;
+}
+// if (selectedCards.length === 0 || cardToSelect.isJoker===true) return true;
+// if ((selectedCards.every(selectedCard => selectedCard.rank === cardToSelect.rank || selectedCard.isJoker))) return true;
+// if (selectedCards.every(selectedCard => selectedCard.suit === cardToSelect.suit || selectedCard.isJoker)) {
+
+// }
+// return false;
 // console.log(game.players[0].cards);
